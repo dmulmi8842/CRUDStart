@@ -56,6 +56,20 @@ namespace CRUDStart
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand comm = new SqlCommand("Select * from StudentInfo_Tab where StudentID = '" + int.Parse(TextBox1.Text) + "'", con);
+            SqlDataReader r = comm.ExecuteReader();
+            while(r.Read())
+            {
+                TextBox2.Text = r.GetValue(1).ToString();
+                DropDownList1.SelectedValue = r.GetValue(2).ToString();
+                TextBox3.Text = r.GetValue(3).ToString();
+                TextBox4.Text = r.GetValue(4).ToString();
+            }
+            con.Close();
+        }
         void LoadRecord()
         {
             SqlCommand comm = new SqlCommand("Select * from StudentInfo_Tab", con);
