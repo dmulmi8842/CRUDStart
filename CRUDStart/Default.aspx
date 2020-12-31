@@ -28,6 +28,7 @@
                         <asp:ListItem>UK</asp:ListItem>
                         <asp:ListItem>Canada</asp:ListItem>
                         <asp:ListItem>The Netherlands</asp:ListItem>
+                        <asp:ListItem>Nepal</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -55,6 +56,9 @@
                 <td class="modal-sm" style="width: 175px">&nbsp;</td>
                 <td>
                     <asp:Button ID="Button1" runat="server" BackColor="#333333" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="White" Text="Insert" OnClick="Button1_Click" />
+                &nbsp;<asp:Button ID="Button2" runat="server" BackColor="#333333" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="White" Text="Update" OnClick="Button2_Click" />
+                &nbsp;<asp:Button ID="Button3" runat="server" BackColor="#333333" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="White" Text="Delete" OnClick="Button3_Click" />
+                &nbsp;<asp:Button ID="Button4" runat="server" BackColor="#333333" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="White" Text="Search" OnClick="Button4_Click" />
                 </td>
             </tr>
             <tr>

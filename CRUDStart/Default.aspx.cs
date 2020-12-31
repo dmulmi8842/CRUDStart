@@ -29,6 +29,33 @@ namespace CRUDStart
             LoadRecord();
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand comm = new SqlCommand("Update StudentInfo_Tab set StudentName = '"+TextBox2.Text+"', Address = '"+DropDownList1.SelectedValue+"', Age = '"+double.Parse(TextBox3.Text)+"', Contact = '"+TextBox4.Text+"' where StudentID = '"+int.Parse(TextBox1.Text)+"'", con);
+            comm.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, GetType(), "script", "alert('Successfully Updated');", true);
+            LoadRecord();
+        }
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand comm = new SqlCommand("Delete from StudentInfo_Tab where StudentID = '"+int.Parse(TextBox1.Text) + "'", con);
+            comm.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, GetType(), "script", "alert('Successfully Deleted');", true);
+            LoadRecord();
+        }
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            SqlCommand comm = new SqlCommand("Select * from StudentInfo_Tab where StudentID = '"+int.Parse(TextBox1.Text) + "'", con);
+            SqlDataAdapter d = new SqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
         void LoadRecord()
         {
             SqlCommand comm = new SqlCommand("Select * from StudentInfo_Tab", con);
@@ -37,7 +64,6 @@ namespace CRUDStart
             d.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
-
         }
     }
 }
